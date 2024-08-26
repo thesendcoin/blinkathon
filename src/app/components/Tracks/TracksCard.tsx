@@ -74,49 +74,57 @@ const TracksCard = ({
               <div className="text-[24px]">{propPrizePoolSubTxt}</div>
             )}
 
-            <div
-              className={`{bg-white flex flex-wrap justify-evenly align-middle items-center ${
-                propSponsors?.length == 1 ? "justify-center" : "justify-between"
-              } justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px] bg-white`}
-            >
-              {propSponsors?.map((sponsor, index) => (
-                <Image
-                  key={index}
-                  className="w-32 p-2 flex justify-center items-center"
-                  src={
-                    sponsor === "solanafoundation"
-                      ? solanafoundation
-                      : sponsor === "metaplex"
-                      ? metaplex
-                      : sponsor === "bags"
-                      ? bags
-                      : sponsor === "carrot"
-                      ? carrot
-                      : sponsor === "dialect"
-                      ? dialect
-                      : sponsor === "helius"
-                      ? helius
-                      : sponsor === "okxwallet"
-                      ? okxwallet
-                      : sponsor === "squads"
-                      ? squads
-                      : sponsor === "stindia"
-                      ? stindia
-                      : sponsor === "stvietnam"
-                      ? stvietnam
-                      : sponsor === "tensor"
-                      ? tensor
-                      : sponsor === "juicebox"
-                      ? juicebox
-                      : stgermany
-                  }
-                  alt="Sponsors"
-                  width={240}
-                  height={240}
-                />
-              ))}
-            </div>
-
+            {propSponsors?.length > 0 && (
+              <div
+                className={`{bg-white flex flex-wrap justify-evenly align-middle items-center ${
+                  propSponsors?.length == 1
+                    ? "justify-center"
+                    : "justify-between"
+                } justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px] bg-white`}
+              >
+                {propSponsors?.map(
+                  (sponsor, index) =>
+                    sponsor !== undefined && (
+                      <Image
+                        key={index}
+                        className="w-32 p-2 flex justify-center items-center"
+                        src={
+                          sponsor === "solanafoundation"
+                            ? solanafoundation
+                            : sponsor === "metaplex"
+                            ? metaplex
+                            : sponsor === "bags"
+                            ? bags
+                            : sponsor === "carrot"
+                            ? carrot
+                            : sponsor === "dialect"
+                            ? dialect
+                            : sponsor === "helius"
+                            ? helius
+                            : sponsor === "okxwallet"
+                            ? okxwallet
+                            : sponsor === "squads"
+                            ? squads
+                            : sponsor === "stindia"
+                            ? stindia
+                            : sponsor === "stvietnam"
+                            ? stvietnam
+                            : sponsor === "tensor"
+                            ? tensor
+                            : sponsor === "juicebox"
+                            ? juicebox
+                            : sponsor === "stgermany"
+                            ? stgermany
+                            : ""
+                        }
+                        alt="Sponsors"
+                        width={240}
+                        height={240}
+                      />
+                    )
+                )}
+              </div>
+            )}
             <div className="text-[40px] "> Prizes: </div>
 
             {propPrizes.map((prize, index) => (

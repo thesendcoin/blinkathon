@@ -13,6 +13,10 @@ import stgermany from "@/assets/svgs/sponsors/stgermany.svg";
 import stindia from "@/assets/svgs/sponsors/stindia.svg";
 import stvietnam from "@/assets/svgs/sponsors/stvietnam.svg";
 import tensor from "@/assets/svgs/sponsors/tensor.svg";
+import send from "@/assets/svgs/sponsors/send.svg";
+import kamino from "@/assets/svgs/sponsors/kamino.svg";
+import alldomains from "@/assets/svgs/sponsors/alldomains.svg";
+
 import {
   Dialog,
   DialogClose,
@@ -115,6 +119,12 @@ const TracksCard = ({
                             ? juicebox
                             : sponsor === "stgermany"
                             ? stgermany
+                            : sponsor === "send"
+                            ? send  
+                            : sponsor === "kamino"
+                            ? kamino
+                            : sponsor === "alldomains"
+                            ? alldomains
                             : ""
                         }
                         alt="Sponsors"

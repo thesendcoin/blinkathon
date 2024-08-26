@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div className='items-center z-10 absolute gap-[24px] w-full lg:gap-14 justify-center flex flex-col'>
         <BlinkathonSVG />
         <p className='text-[32px] lg:text-[46px] max-w-[300px] lg:max-w-[460px] leading-[100%] text-center'>
-          // Virtual Blinks Hackathon starting from Aug 26 - Aug 31
+          // Online Global Blinks Hackathon starting from Aug 26 - Aug 31
         </p>
         <div className='flex flex-row items-center gap-4 lg:gap-10'>
           <div className='relative inline-block'>

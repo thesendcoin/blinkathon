@@ -5,7 +5,7 @@ const DetailsSection = () => {
     <div className="flex flex-row items-center justify-center w-full py-24 gap-[90px]">
       <div className="relative w-fit">
         <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">25K+</p>
+          <p className="text-[94px] text-center text-[#1C71FF]">30K+</p>
           <p className="text-[36px] text-center text-[#1C71FF] pt-2">Prize</p>
         </div>
         <div className="mt-44">
@@ -14,7 +14,7 @@ const DetailsSection = () => {
       </div>
       <div className="relative w-fit">
         <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">9</p>
+          <p className="text-[94px] text-center text-[#1C71FF]">10</p>
           <p className="text-[36px] text-center text-[#1C71FF] pt-2">Tracks</p>
         </div>
         <div className="mt-44">
@@ -23,8 +23,8 @@ const DetailsSection = () => {
       </div>
       <div className="relative w-fit">
         <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">2</p>
-          <p className="text-[36px] text-center text-[#1C71FF]">Workshops</p>
+          <p className="text-[94px] text-center text-[#1C71FF]">14</p>
+          <p className="text-[36px] text-center text-[#1C71FF]">Sponsors</p>
         </div>
         <div className="mt-44">
           <BGWhiteSVG />

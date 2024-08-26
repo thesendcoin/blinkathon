@@ -8,6 +8,9 @@ export const sponsorList = [
     name: "dialect",
   },
   {
+    name: "send",
+  },
+  {
     name: "squads",
   },
   {
@@ -36,5 +39,11 @@ export const sponsorList = [
   },
   {
     name: "carrot",
+  },
+  {
+    name: "kamino",
+  },
+  {
+    name: "alldomains",
   },
 ];

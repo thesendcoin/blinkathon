@@ -7,9 +7,9 @@ export const sponsorList = [
   {
     name: "dialect",
   },
-  {
-    name: "send",
-  },
+  // {
+  //   name: "send",
+  // },
   {
     name: "squads",
   },

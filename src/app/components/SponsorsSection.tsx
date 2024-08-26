@@ -66,8 +66,6 @@ export const SponsorsSection = () => {
                         ? juicebox
                         : sponsor?.name === "stgermany"
                         ? stgermany
-                        : sponsor?.name === "send"
-                        ? send
                         : sponsor?.name === "kamino"
                         ? kamino
                         : sponsor?.name === "alldomains"

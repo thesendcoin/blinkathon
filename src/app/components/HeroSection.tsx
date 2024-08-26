@@ -15,9 +15,9 @@ const HeroSection = () => {
         </p>
         <div className='flex flex-row items-center gap-4 lg:gap-10'>
           <div className='relative inline-block'>
-            <button className='text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-1 pt-2'>
+            <a href='#tracks' className=' text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4'>
               View Tracks
-            </button>
+            </a>
             <span className='absolute top-0 left-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />
             <span className='absolute top-0 right-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />
             <span className='absolute bottom-0 left-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />
@@ -28,9 +28,9 @@ const HeroSection = () => {
             <span className='absolute bottom-0 right-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#1C71FF]' />
           </div>
           <div className='relative inline-block'>
-            <button className='text-[24px] lg:text-[42px] bg-[#1D41B9] text-white border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-1 pt-2'>
+            <a href='https://t.me/blinkathon' target='_blank' className='text-[24px] lg:text-[42px] bg-[#1D41B9] text-white border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4'>
               Join Telegram
-            </button>
+            </a>
             <span className='absolute top-0 left-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />
             <span className='absolute top-0 right-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />
             <span className='absolute bottom-0 left-0 h-[6px] lg:h-[12px] w-[6px] lg:w-[12px] bg-[#699EFF]' />

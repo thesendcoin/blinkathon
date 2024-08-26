@@ -75,7 +75,7 @@ const TracksCard = ({
             )}
 
             <div
-              className={`{bg-white flex flex-wrap align-middle items-center ${
+              className={`{bg-white flex flex-wrap justify-evenly align-middle items-center ${
                 propSponsors?.length == 1 ? "justify-center" : "justify-between"
               } justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px] bg-white`}
             >

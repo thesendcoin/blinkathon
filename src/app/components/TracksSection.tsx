@@ -1,183 +1,75 @@
-import React from 'react';
+import Image from "next/image";
+import React from "react";
+import TracksBottomBG from "@/assets/svgs/bgs/TracksBottomBG.svg";
+import TracksTopBG from "@/assets/svgs/bgs/TracksTopBG.svg";
+import { TrackCardBg } from "@/assets/bgs/TrackCardBg";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const TrackContainer = () => {
   return (
-    <div className='relative'>
-      <div className='absolute p-12 flex flex-col gap-1'>
-        <p className='text-[42px] leading-none'>Track name</p>
-        <p className='text-[26px] leading-none'>Track Description</p>
+    <>
+      <div className="relative">
+        <div className="absolute p-12 flex flex-col gap-1">
+          <p className="text-[42px] leading-none">Track name</p>
+          <p className="text-[26px] leading-none">Track Description</p>
+        </div>
+        <TrackCardBg />
       </div>
-      <TrackBackgroundSVG />
-    </div>
+
+      <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
 const TracksSection = () => {
   return (
-    <div className='min-h-screen relative flex flex-row justify-between items-center bg-[#1C71FF]'>
-      <div className='flex-1 h-[100%] hidden'>
-        <HeroBackgroundSVG />
-      </div>
-      <div className='absolute w-full flex flex-col items-center justify-center'>
-        <p className='text-[94px]'>Blinkathon Tracks</p>
-        <div className='flex flex-row flex-wrap items-center justify-center gap-12 max-w-7xl border border-red-500'>
+    <div
+      id="tracks"
+      className="min-h-screen relative flex flex-row justify-between items-center bg-[#1C71FF]"
+    >
+      <div className="w-full flex flex-col items-center justify-center">
+        <Image
+          className="w-full h-full"
+          src={TracksTopBG}
+          alt="Sponsors"
+          width={240}
+          height={240}
+        />
+
+        <p className="text-[94px]">Blinkathon Tracks</p>
+
+        <div className="flex flex-row flex-wrap items-center justify-center gap-12 max-w-7xl">
           <TrackContainer />
           <TrackContainer />
           <TrackContainer />
           <TrackContainer />
         </div>
-      </div>
-      <div className='-scale-y-100 -rotate-180 transform hidden'>
-        <HeroBackgroundSVG />
-      </div>
-    </div>
-  );
-};
 
-const TrackBackgroundSVG = () => {
-  return (
-    <svg
-      width='365'
-      height='253'
-      viewBox='0 0 365 253'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M334.167 0.874054H30.1667V15.8741H15.1667V30.8741H0.166687V222.874H30.1667V237.874H334.167V222.874H349.167V30.8741H334.167V0.874054Z'
-        fill='#1D41B9'
-      />
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M30.1667 0.874054H334.167V15.8741H30.1667V0.874054ZM15.1667 30.8741V15.8741H30.1667V30.8741H15.1667ZM15.1667 222.874H0.166687V30.8741H15.1667V222.874ZM30.1667 237.874V222.874H15.1667V237.874H30.1667ZM334.167 237.874V252.874H30.1667V237.874H334.167ZM349.167 222.874V237.874H334.167V222.874H349.167ZM349.167 30.8741H364.167V222.874H349.167V30.8741ZM349.167 30.8741V15.8741H334.167V30.8741H349.167Z'
-        fill='#699EFF'
-      />
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M0.166687 30.8741H15.1667V45.8741V60.8741V75.8741V90.8741H0.166687V75.8741V60.8741V45.8741V30.8741ZM15.1667 105.874H0.166687V120.874H15.1667V105.874Z'
-        fill='#CCECFF'
-      />
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M30.1667 252.874V237.874H45.1667H60.1667H75.1667H90.1667V252.874H75.1667H60.1667H45.1667H30.1667ZM105.167 237.874V252.874H120.167V237.874H105.167Z'
-        fill='#CCECFF'
-      />
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M364.167 222.874H349.167V207.874V192.874V177.874V162.874H364.167L364.167 177.874V192.874V207.874L364.167 222.874ZM349.167 147.874H364.167V132.874H349.167V147.874Z'
-        fill='#CCECFF'
-      />
-      <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
-        d='M334.167 0.874054V15.8741L319.167 15.8741H304.167L289.167 15.8741H274.167V0.874054L289.167 0.874054L304.167 0.874054L319.167 0.874054L334.167 0.874054ZM259.167 15.8741V0.874054L244.167 0.874054V15.8741H259.167Z'
-        fill='#CCECFF'
-      />
-      <path
-        d='M274.167 162.874H289.167V177.874H274.167V162.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M289.167 162.874H304.167V177.874H289.167V162.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M304.167 162.874H319.167V177.874H304.167V162.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M274.167 192.874H289.167V207.874H274.167V192.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M304.167 177.874H319.167V192.874H304.167V177.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M304.167 192.874H319.167V207.874H304.167V192.874Z'
-        fill='#699EFF'
-      />
-      <path
-        d='M259.167 207.874H274.167V222.874H259.167V207.874Z'
-        fill='#699EFF'
-      />
-    </svg>
-  );
-};
-
-const HeroBackgroundSVG = () => {
-  return (
-    <div className='flex flex-col justify-between items-start min-w-[180px] w-full h-[100%] md:w-[240px] lg:w-[469px]'>
-      <div className='-scale-x-100 -rotate-180 w-full'>
-        <svg
-          viewBox='0 0 469 195'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M19.3636 0.874023H0V20.2377H19.3636V0.874023ZM96.8182 136.419V155.783H77.4545H58.0909H38.7273H19.3636H0V136.419V117.056V97.6922V78.3286H19.3636V58.9649L0 58.9649V39.6013L19.3636 39.6013V20.2377H38.7273V39.6013H58.0909V20.2377H77.4545V39.6013L96.8182 39.6013H116.182V58.9649H96.8182H77.4545V78.3286H96.8182H116.182V97.6922H135.545V78.3286H154.909V97.6922H174.273V117.056V136.419H193.636H213V155.783H193.636H174.273H154.909V136.419V117.056V97.6922H135.545V117.056V136.419V155.783H116.182V136.419H96.8182ZM58.0909 58.9649L38.7273 58.9649V78.3286V97.6922H58.0909H77.4545V78.3286H58.0909V58.9649ZM58.0909 58.9649V39.6013H77.4545V58.9649H58.0909ZM58.0909 136.419H77.4545V117.056L58.0909 117.056V136.419ZM213 97.6922H193.636V117.056H213V97.6922Z'
-            fill='#699EFF'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M19.3636 39.965H0V59.3286H19.3636V39.965ZM96.8182 175.51V194.874H77.4545H58.0909H38.7273H19.3636H0V175.51V156.147V136.783V117.42H19.3636V98.0559L0 98.0559V78.6922L19.3636 78.6922V59.3286H38.7273V78.6922H58.0909V59.3286H77.4545V78.6922L96.8182 78.6922H116.182V98.0559H96.8182H77.4545V117.42H96.8182H116.182V136.783H135.545V117.42H154.909V136.783H174.273V156.147V175.51H193.636H213V194.874H193.636H174.273H154.909V175.51V156.147V136.783H135.545V156.147V175.51V194.874H116.182V175.51H96.8182ZM58.0909 98.0559L38.7273 98.0559V117.42V136.783H58.0909H77.4545V117.42H58.0909V98.0559ZM58.0909 98.0559V78.6922H77.4545V98.0559H58.0909ZM58.0909 175.51H77.4545V156.147L58.0909 156.147V175.51ZM213 136.783H193.636V156.147H213V136.783Z'
-            fill='white'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M409.667 115.874H390V135.541V155.207H409.667V135.541V115.874ZM331 135.541H350.667L350.667 115.874H370.333V135.541L350.667 135.541V155.207H331V135.541ZM429.333 174.874V155.207H409.667V174.874H429.333ZM331 155.207H311.333V174.874H331V155.207ZM213 155.207H232.667H252.333V174.874H232.667H213V155.207ZM272 174.874V155.207H291.667V174.874H272ZM390 155.207H370.333V174.874H390V155.207ZM409.667 135.541H429.333V155.207H409.667V135.541ZM311.333 135.541H291.667H272V155.207H291.667H311.333V135.541ZM252.333 135.541V115.874H272L272 135.541L252.333 135.541ZM252.333 135.541L232.667 135.541V155.207H252.333L252.333 135.541Z'
-            fill='#699EFF'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M252.333 135.874H232.667V155.541V175.207H252.333V155.541V135.874ZM291.667 155.541H311.333V175.207H291.667V155.541ZM291.667 155.541L272 155.541V135.874H291.667L291.667 155.541ZM213 175.207V194.874H232.667V175.207H213ZM331 175.207H311.333V194.874H331V175.207ZM409.667 175.207H429.333V194.874H409.667H390V175.207H409.667ZM370.333 175.207V194.874H350.667V175.207H370.333ZM272 175.207H252.333V194.874H272V175.207ZM213 155.541H232.667V175.207H213V155.541ZM350.667 155.541H331V175.207H350.667H370.333V155.541L390 155.541L390 175.207H409.667V155.541L390 155.541V135.874H370.333L370.333 155.541H350.667ZM468.667 175.207H449V194.874H468.667V175.207Z'
-            fill='white'
-          />
-        </svg>
-      </div>
-
-      <div className='w-full'>
-        <svg
-          viewBox='0 0 469 195'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M19.3636 0.874023H0V20.2377H19.3636V0.874023ZM96.8182 136.419V155.783H77.4545H58.0909H38.7273H19.3636H0V136.419V117.056V97.6922V78.3286H19.3636V58.9649L0 58.9649V39.6013L19.3636 39.6013V20.2377H38.7273V39.6013H58.0909V20.2377H77.4545V39.6013L96.8182 39.6013H116.182V58.9649H96.8182H77.4545V78.3286H96.8182H116.182V97.6922H135.545V78.3286H154.909V97.6922H174.273V117.056V136.419H193.636H213V155.783H193.636H174.273H154.909V136.419V117.056V97.6922H135.545V117.056V136.419V155.783H116.182V136.419H96.8182ZM58.0909 58.9649L38.7273 58.9649V78.3286V97.6922H58.0909H77.4545V78.3286H58.0909V58.9649ZM58.0909 58.9649V39.6013H77.4545V58.9649H58.0909ZM58.0909 136.419H77.4545V117.056L58.0909 117.056V136.419ZM213 97.6922H193.636V117.056H213V97.6922Z'
-            fill='#699EFF'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M19.3636 39.965H0V59.3286H19.3636V39.965ZM96.8182 175.51V194.874H77.4545H58.0909H38.7273H19.3636H0V175.51V156.147V136.783V117.42H19.3636V98.0559L0 98.0559V78.6922L19.3636 78.6922V59.3286H38.7273V78.6922H58.0909V59.3286H77.4545V78.6922L96.8182 78.6922H116.182V98.0559H96.8182H77.4545V117.42H96.8182H116.182V136.783H135.545V117.42H154.909V136.783H174.273V156.147V175.51H193.636H213V194.874H193.636H174.273H154.909V175.51V156.147V136.783H135.545V156.147V175.51V194.874H116.182V175.51H96.8182ZM58.0909 98.0559L38.7273 98.0559V117.42V136.783H58.0909H77.4545V117.42H58.0909V98.0559ZM58.0909 98.0559V78.6922H77.4545V98.0559H58.0909ZM58.0909 175.51H77.4545V156.147L58.0909 156.147V175.51ZM213 136.783H193.636V156.147H213V136.783Z'
-            fill='white'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M409.667 115.874H390V135.541V155.207H409.667V135.541V115.874ZM331 135.541H350.667L350.667 115.874H370.333V135.541L350.667 135.541V155.207H331V135.541ZM429.333 174.874V155.207H409.667V174.874H429.333ZM331 155.207H311.333V174.874H331V155.207ZM213 155.207H232.667H252.333V174.874H232.667H213V155.207ZM272 174.874V155.207H291.667V174.874H272ZM390 155.207H370.333V174.874H390V155.207ZM409.667 135.541H429.333V155.207H409.667V135.541ZM311.333 135.541H291.667H272V155.207H291.667H311.333V135.541ZM252.333 135.541V115.874H272L272 135.541L252.333 135.541ZM252.333 135.541L232.667 135.541V155.207H252.333L252.333 135.541Z'
-            fill='#699EFF'
-          />
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M252.333 135.874H232.667V155.541V175.207H252.333V155.541V135.874ZM291.667 155.541H311.333V175.207H291.667V155.541ZM291.667 155.541L272 155.541V135.874H291.667L291.667 155.541ZM213 175.207V194.874H232.667V175.207H213ZM331 175.207H311.333V194.874H331V175.207ZM409.667 175.207H429.333V194.874H409.667H390V175.207H409.667ZM370.333 175.207V194.874H350.667V175.207H370.333ZM272 175.207H252.333V194.874H272V175.207ZM213 155.541H232.667V175.207H213V155.541ZM350.667 155.541H331V175.207H350.667H370.333V155.541L390 155.541L390 175.207H409.667V155.541L390 155.541V135.874H370.333L370.333 155.541H350.667ZM468.667 175.207H449V194.874H468.667V175.207Z'
-            fill='white'
-          />
-        </svg>
+        <Image
+          className="w-full h-full"
+          src={TracksBottomBG}
+          alt="Sponsors"
+          width={240}
+          height={240}
+        />
       </div>
     </div>
   );

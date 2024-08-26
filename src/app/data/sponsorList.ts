@@ -5,19 +5,25 @@ export const sponsorList = [
     name: "solanafoundation",
   },
   {
-    name: "metaplex",
-  },
-  {
-    name: "squad",
-  },
-  {
     name: "dialect",
+  },
+  {
+    name: "send",
+  },
+  {
+    name: "squads",
+  },
+  {
+    name: "stgermany",
   },
   {
     name: "stindia",
   },
   {
     name: "stvietnam",
+  },
+  {
+    name: "metaplex",
   },
   {
     name: "okxwallet",
@@ -35,9 +41,9 @@ export const sponsorList = [
     name: "carrot",
   },
   {
-    name: "squads",
+    name: "kamino",
   },
   {
-    name: "stgermany",
+    name: "alldomains",
   },
 ];

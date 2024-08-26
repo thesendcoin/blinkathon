@@ -13,7 +13,7 @@ export const SponsorsSection = () => {
           Sponsors{" "}
         </div>
 
-        <div className="flex flex-wrap gap-2 align-middle items-center">
+        <div className="flex flex-wrap gap-16 align-middle items-center justify-center ">
           <Image
             className=""
             src={juiceboxSvg}

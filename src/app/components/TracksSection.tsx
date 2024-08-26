@@ -1,9 +1,8 @@
-import Image from "next/image";
-import React from "react";
 import TracksBottomBG from "@/assets/svgs/bgs/TracksBottomBG.svg";
 import TracksTopBG from "@/assets/svgs/bgs/TracksTopBG.svg";
-import TracksCard from "./Tracks/TracksCard";
+import Image from "next/image";
 import { tracks } from "../data/tracks";
+import TracksCard from "./Tracks/TracksCard";
 
 const TracksSection = () => {
   return (

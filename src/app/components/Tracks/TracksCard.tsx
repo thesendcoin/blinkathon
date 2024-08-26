@@ -1,24 +1,24 @@
 import { TrackCardBg } from "@/assets/bgs/TrackCardBg";
+import closeIcon from "@/assets/svgs/buttons/close.svg";
+import bags from "@/assets/svgs/sponsors/bags.svg";
+import carrot from "@/assets/svgs/sponsors/carrot.svg";
+import dialect from "@/assets/svgs/sponsors/dialect.svg";
+import helius from "@/assets/svgs/sponsors/helius.svg";
+import juicebox from "@/assets/svgs/sponsors/JuiceBoxLogo.svg";
+import metaplex from "@/assets/svgs/sponsors/metaplex.svg";
+import okxwallet from "@/assets/svgs/sponsors/okxwallet.svg";
+import solanafoundation from "@/assets/svgs/sponsors/solanafoundation.svg";
+import squads from "@/assets/svgs/sponsors/squads.svg";
+import stgermany from "@/assets/svgs/sponsors/stgermany.svg";
+import stindia from "@/assets/svgs/sponsors/stindia.svg";
+import stvietnam from "@/assets/svgs/sponsors/stvietnam.svg";
+import tensor from "@/assets/svgs/sponsors/tensor.svg";
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import closeIcon from "@/assets/svgs/buttons/close.svg";
-import juicebox from "@/assets/svgs/sponsors/JuiceBoxLogo.svg";
-import stgermany from "@/assets/svgs/sponsors/stgermany.svg";
-import bags from "@/assets/svgs/sponsors/bags.svg";
-import carrot from "@/assets/svgs/sponsors/carrot.svg";
-import dialect from "@/assets/svgs/sponsors/dialect.svg";
-import helius from "@/assets/svgs/sponsors/helius.svg";
-import okxwallet from "@/assets/svgs/sponsors/okxwallet.svg";
-import metaplex from "@/assets/svgs/sponsors/metaplex.svg";
-import solanafoundation from "@/assets/svgs/sponsors/solanafoundation.svg";
-import squads from "@/assets/svgs/sponsors/squads.svg";
-import stindia from "@/assets/svgs/sponsors/stindia.svg";
-import stvietnam from "@/assets/svgs/sponsors/stvietnam.svg";
-import tensor from "@/assets/svgs/sponsors/tensor.svg";
 
 import Image from "next/image";
 
@@ -27,7 +27,7 @@ interface Props {
   propTitle: string;
   propDescription: string;
   propPrizePool: string;
-  propPrizePoolSubTxt: string;
+  propPrizePoolSubTxt?: string;
   // bags, carrot, dialect, helius, okxwallet, metaplex, solanafoundation, squads, stindia, stvietnam, tensor
   propSponsors: string[];
 }
@@ -44,7 +44,7 @@ const TracksCard = ({
       <Dialog>
         <DialogTrigger>
           <div className="relative">
-            <div className="absolute p-12 flex flex-col gap-1">
+            <div className="absolute p-12 flex flex-col gap-1 text-left">
               <p className="text-[42px] leading-none">{propTitle}</p>
               <p className="text-[26px] leading-none">{propDescription}</p>
             </div>
@@ -70,9 +70,15 @@ const TracksCard = ({
               </DialogClose>
             </div>
             <div className="text-[64px]"> Prize Pool: ${propPrizePool} </div>
-            <div className="text-[24px]">{propPrizePoolSubTxt}</div>
+            {propPrizePoolSubTxt && (
+              <div className="text-[24px]">{propPrizePoolSubTxt}</div>
+            )}
 
-            <div className="bg-white flex flex-wrap align-middle items-center justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px]">
+            <div
+              className={`{bg-white flex flex-wrap align-middle items-center ${
+                propSponsors?.length == 1 ? "justify-center" : "justify-between"
+              } justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px] bg-white`}
+            >
               {propSponsors?.map((sponsor, index) => (
                 <Image
                   key={index}

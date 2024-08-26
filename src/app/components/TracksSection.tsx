@@ -3,25 +3,9 @@ import React from "react";
 import TracksBottomBG from "@/assets/svgs/bgs/TracksBottomBG.svg";
 import TracksTopBG from "@/assets/svgs/bgs/TracksTopBG.svg";
 import TracksCard from "./Tracks/TracksCard";
+import { tracks } from "../data/tracks";
 
 const TracksSection = () => {
-  const tracks = [
-    {
-      propTitle: "Track 1",
-      propDescription: "Track 1",
-      propPrizePool: "2,000",
-      propPrizePoolSubTxt: "Prize Pool",
-      propPrizes: [{ place: 1, amount: "2,000" }],
-    },
-    {
-      propTitle: "Track 2",
-      propDescription: "Track 2",
-      propPrizePool: "3,000",
-      propPrizePoolSubTxt: "Prize Pool",
-      propPrizes: [{ place: 1, amount: "3,000" }],
-    },
-    // Add more tracks as needed
-  ];
   return (
     <div
       id="tracks"
@@ -47,6 +31,7 @@ const TracksSection = () => {
               propPrizePool={track.propPrizePool}
               propPrizePoolSubTxt={track.propPrizePoolSubTxt}
               propPrizes={track.propPrizes}
+              propSponsors={track.propSponsors}
             />
           ))}
         </div>

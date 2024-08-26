@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const myFont = localFont({
-  src: './PPNeueBit-bold.otf',
+  src: './ppneuebit-bold.otf',
 });
 
 export default function RootLayout({

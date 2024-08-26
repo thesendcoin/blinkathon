@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+body {
+  color: white;
+  overflow-x: hidden !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

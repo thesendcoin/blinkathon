@@ -13,7 +13,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import closeIcon from "@/assets/svgs/buttons/close.svg";
-import ResourceBG from "@/assets/svgs/bgs/ResourceBg.svg";
 import juiceboxSvg from "@/assets/svgs/sponsors/JuiceBoxLogo.svg";
 import STGermanyLogo from "@/assets/svgs/sponsors/STGermanyLogo.svg";
 
@@ -48,6 +47,7 @@ const TrackContainer = () => {
               </DialogClose>
             </div>
             <div className="text-[64px]"> Prize Pool: $10k </div>
+            <div className="text-[24px]">+ Helius Credits to winners + Top submissions are eligible for additional bigger SEND incentives Grant</div>
 
             <div className="bg-white flex justify-between gap-4 p-4 border-8 border-[#699EFF] rounded-[32px]">
               {" "}
@@ -71,13 +71,13 @@ const TrackContainer = () => {
             <div className="text-[26px] ml-2"> - 1st Place : 6k USDC</div>
             <div className="text-[26px] ml-2"> - 1st Place : 6k USDC</div>
 
-            <div className="text-[40px]"> Examples: </div>
+            {/* <div className="text-[40px]"> Examples: </div>
             <div className="text-[26px] ml-2"> - idea 1</div>
             <div className="text-[26px] ml-2"> - idea 2</div>
 
             <div className="text-[40px] mb-4"> Resources: </div>
 
-            {/* Group This :  */}
+
             <div className="text-[26px] ml-6 z-10 "> Link1.xyz </div>
             <Image
               className="w-32 h-full -mt-12 z-0"
@@ -85,7 +85,7 @@ const TrackContainer = () => {
               alt="Sponsors"
               width={120}
               height={120}
-            />
+            /> */}
           </div>
         </DialogContent>
       </Dialog>

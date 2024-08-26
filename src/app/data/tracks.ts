@@ -1,6 +1,6 @@
 export const tracks = [
   {
-    propTitle: "Grand Prize Track [Best Blinks Overall]",
+    propTitle: "Grand Prize Track",
     propDescription:
       "Sponsored by Solana Foundation, Dialect, Superteam India, OKX, and Superteam Vietnam",
     propPrizePool: "8K",
@@ -57,8 +57,8 @@ export const tracks = [
     propSponsors: ["bags"],
   },
   {
-    propTitle: "Most Popular Blinks [Superteam Germany/Blinkinsights]",
-    propDescription: "Sponsored by Superteam Germany",
+    propTitle: "Most Popular Blinks",
+    propDescription: "Sponsored by Superteam Germany and Blinkinsights",
     propPrizePool: "1k",
     propPrizes: ["1st Prize: $1000 USDC"],
     propSponsors: ["stgermany"],

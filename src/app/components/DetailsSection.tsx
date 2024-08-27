@@ -2,31 +2,31 @@ import React from "react";
 
 const DetailsSection = () => {
   return (
-    <div className="flex flex-row items-center justify-center w-full py-24 gap-[90px]">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full py-12 md:py-24 gap-8 md:gap-[90px]">
       <div className="relative w-fit">
-        <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">30K+</p>
-          <p className="text-[36px] text-center text-[#1C71FF] pt-2">Prize</p>
+        <div className="absolute flex flex-col items-center justify-center pt-4 md:pt-8 z-10 w-full h-full">
+          <p className="text-[48px] md:text-[94px] text-center text-[#1C71FF]">30K+</p>
+          <p className="text-[18px] md:text-[36px] text-center text-[#1C71FF] pt-1 md:pt-2">Prize</p>
         </div>
-        <div className="mt-44">
+        <div className="mt-24 md:mt-44 transform scale-75 md:scale-100">
           <BGWhiteSVG />
         </div>
       </div>
       <div className="relative w-fit">
-        <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">10</p>
-          <p className="text-[36px] text-center text-[#1C71FF] pt-2">Tracks</p>
+        <div className="absolute flex flex-col items-center justify-center pt-4 md:pt-8 z-10 w-full h-full">
+          <p className="text-[48px] md:text-[94px] text-center text-[#1C71FF]">10</p>
+          <p className="text-[18px] md:text-[36px] text-center text-[#1C71FF] pt-1 md:pt-2">Tracks</p>
         </div>
-        <div className="mt-44">
+        <div className="mt-24 md:mt-44 transform scale-75 md:scale-100">
           <BGWhiteSVG />
         </div>
       </div>
       <div className="relative w-fit">
-        <div className="absolute flex flex-col items-center justify-center pt-8 z-10 w-full h-full ">
-          <p className="text-[94px] text-center text-[#1C71FF]">14</p>
-          <p className="text-[36px] text-center text-[#1C71FF]">Sponsors</p>
+        <div className="absolute flex flex-col items-center justify-center pt-4 md:pt-8 z-10 w-full h-full">
+          <p className="text-[48px] md:text-[94px] text-center text-[#1C71FF]">14</p>
+          <p className="text-[18px] md:text-[36px] text-center text-[#1C71FF] pt-1 md:pt-2">Sponsors</p>
         </div>
-        <div className="mt-44">
+        <div className="mt-24 md:mt-44 transform scale-75 md:scale-100">
           <BGWhiteSVG />
         </div>
       </div>

@@ -25,18 +25,36 @@ import {
 
 import Image from "next/image";
 
-const SubmissionPreview = ({}) => {
+interface TypeSubmissionPreview {
+  propPfpUrl: string;
+  propWalAddress: string;
+  propBlinkUrl: string;
+}
+
+const SubmissionPreview = ({
+  propPfpUrl,
+  propWalAddress,
+  propBlinkUrl,
+}: TypeSubmissionPreview) => {
   return (
     <>
       <Dialog>
         <DialogTrigger>
-          <div className="relative">
+          <div className="relative  border-8 border-[#699EFF] bg-[#1D41B9]">
             <div className="absolute p-12 flex flex-col gap-1 text-left">
-
-                
+              {/* <Image src={alldomains} alt="Sponsors" width={40} height={40} /> */}
             </div>
 
-            <div className="cursor-pointer"></div>
+            <div className="flex items-center justify-center p-2 gap-2">
+              <div className="flex items-center justify-center gap-2">
+                <div className="cursor-pointer h-[44px]  w-[44px] border-8 border-[#699EFF] bg-[#cbe330] rounded-full"></div>
+                <div className="cursor-pointer text-[24px]">
+                  {propWalAddress}
+                </div>
+              </div>
+
+              <div className="text-[24px]">{propBlinkUrl}</div>
+            </div>
           </div>
         </DialogTrigger>
 

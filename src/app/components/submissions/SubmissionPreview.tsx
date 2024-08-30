@@ -24,17 +24,20 @@ import {
 } from "@/components/ui/dialog";
 
 import Image from "next/image";
+import BlinkComp from "../Blinks/BlinkComp";
 
 interface TypeSubmissionPreview {
   propPfpUrl: string;
   propWalAddress: string;
   propBlinkUrl: string;
+  propActionApiUrl: string;
 }
 
 const SubmissionPreview = ({
   propPfpUrl,
   propWalAddress,
   propBlinkUrl,
+  propActionApiUrl,
 }: TypeSubmissionPreview) => {
   return (
     <>
@@ -59,6 +62,7 @@ const SubmissionPreview = ({
         </DialogTrigger>
 
         <DialogContent className="bg-[#1C71FF]">
+          <BlinkComp propActionApiUrl={propActionApiUrl} />
           <DialogClose>
             <Image
               className="w-8 h-8"

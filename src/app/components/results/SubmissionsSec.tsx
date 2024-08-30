@@ -17,7 +17,12 @@ const SubmissionsSec = () => {
         />
         <p className="text-[94px] text-center">Blinkathon Submissions</p>
 
-        <SubmissionPreview propPfpUrl={""} propWalAddress={"0x093202..090"} propBlinkUrl={"blinkathon.com"} />
+        <SubmissionPreview
+          propActionApiUrl="https://checkmate.sendarcade.fun"
+          propPfpUrl={""}
+          propWalAddress={"0x093202..090"}
+          propBlinkUrl={"blinkathon.com"}
+        />
 
         <Image
           className="w-full h-full"

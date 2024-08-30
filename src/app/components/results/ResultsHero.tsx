@@ -12,15 +12,17 @@ const ResultsHero = () => {
           <p className="text-[40px] text-[#1C71FF] z-50">
             Submit your Project here!
           </p>
-          <div className="">
-            <div className="text-[#fff] text-lg z-50">Submit</div>
+          <div className="cursor-pointer">
             <Image
-              className="-mt-6 z-0"
+              className="-z-40"
               src={blueSvgCTA}
               alt="Sponsors"
-              width={104}
+              width={176}
               height={240}
             />
+            <div className="-mt-12 ml-10 text-[#fff] text-[24px] z-50">
+              Submit Blinks
+            </div>
           </div>
         </div>
         <Image

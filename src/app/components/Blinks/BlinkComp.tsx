@@ -10,6 +10,7 @@ const DynamicBlink = dynamic(
   () => import("@dialectlabs/blinks").then((mod) => mod.Blink),
   { ssr: false }
 );
+import { Skeleton } from "@/components/ui/skeleton";
 
 // Testing
 const BlinkComp = ({ propActionApiUrl }: { propActionApiUrl: string }) => {
@@ -36,11 +37,23 @@ const BlinkComp = ({ propActionApiUrl }: { propActionApiUrl: string }) => {
     <>
       {action ? (
         <DynamicBlink
+          stylePreset="custom"
           action={action}
           websiteText={new URL(actionApiUrl).hostname}
         />
       ) : (
-        <div>Blink is Loading</div>
+        <>
+          <div className="flex flex-col gap-2">
+            <Skeleton className="h-[320px]" />
+            <Skeleton className="h-[16px]" />
+            <Skeleton className="h-[16px]" />
+            <Skeleton className="h-[32px]" />
+            <div className="flex gap-2">
+              <Skeleton className="h-[32px]" />
+              <Skeleton className="h-[32px]" />
+            </div>
+          </div>
+        </>
       )}
     </>
   );

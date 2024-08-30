@@ -17,13 +17,15 @@ const SubmissionsSec = () => {
         />
         <p className="text-[94px] text-center">Blinkathon Submissions</p>
 
-        <SubmissionPreview
-          propActionApiUrl="https://checkmate.sendarcade.fun"
-          propPfpUrl={""}
-          propWalAddress={"0x093202..090"}
-          propBlinkUrl={"blinkathon.com"}
-        />
-
+        <div className="flex flex-row items-center justify-center">
+          <SubmissionPreview
+            propBlinkPreviewUrl={""}
+            propActionApiUrl="https://checkmate.sendarcade.fun"
+            propPfpUrl={""}
+            propWalAddress={"0x093202..090"}
+            propBlinkUrl={"blinkathon.com"}
+          />
+        </div>
         <Image
           className="w-full h-full"
           src={TracksBottomBG}

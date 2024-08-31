@@ -27,37 +27,30 @@ export async function GET(req: NextRequest) {
       actions: [
         {
           label: "Submit!", // button text
-          href: "/api/submit?name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&hasTeam={hasTeam}&tracks={tracks}", // form action
+          href: "/api/submit?name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&tracks={tracks}&pitch={pitch}", // form action
           parameters: [
             {
               name: "name", // field name
               label: "Enter your name",
+              required: true,
             },
-            { name: "telegramId", label: "Telegram username" },
+            { name: "telegramId", label: "Telegram username", required: true },
             {
               name: "blinkurl",
               type: "url",
               label: "Blink URL - Enter Actual path (domain/xyz)",
+              required: true,
             },
             {
               name: "githubUrl",
               type: "url",
               label: "Github URL - Enter project Github URL",
+              required: true,
             },
             {
-              name: "hasTeam",
-              label: "Do you have a team?",
-              type: "select",
-              options: [
-                {
-                  label: "Yes",
-                  value: "yes",
-                },
-                {
-                  label: "No",
-                  value: "no",
-                },
-              ],
+              name: "pitch",
+              type: "url",
+              label: "Pitch Deck URL - a public url to your pitch deck",
             },
             {
               type: "checkbox",
@@ -121,32 +114,22 @@ export async function POST(req: NextRequest) {
     let paramTelegramId = searchParams.get("telegramId");
     let paramBlinkurl = searchParams.get("blinkurl");
     let paramGithubUrl = searchParams.get("githubUrl");
-    let paramHasTeam = searchParams.get("hasTeam");
     let paramTracks = searchParams.get("tracks");
+    let paramPitch = searchParams.get("pitch");
 
     if (
       !paramName ||
       !paramTelegramId ||
       !paramBlinkurl ||
       !paramGithubUrl ||
-      !paramHasTeam ||
+      !paramPitch ||
       !paramTracks
     ) {
-      return new Response("Missing required fields", {
+      return new NextResponse("Missing required fields", {
         status: 400,
         headers: ACTIONS_CORS_HEADERS,
       });
     }
-
-    console.log("To be stored in DB");
-    console.log(
-      paramName,
-      paramTelegramId,
-      paramBlinkurl,
-      paramGithubUrl,
-      paramHasTeam,
-      paramTracks
-    );
 
     const connection = new Connection(
       clusterApiUrl("mainnet-beta"),
@@ -158,19 +141,29 @@ export async function POST(req: NextRequest) {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
-    console.log("Inserting into DB");
+    let res = await supabase.from("blinkathon_results").insert([
+      {
+        name: paramName,
+        telegram: paramTelegramId,
+        blink: paramBlinkurl,
+        github: paramGithubUrl,
+        pitch: paramPitch,
+        tracks: paramTracks.split(","),
+      },
+    ]);
 
-    // let res = await supabase.from("blinkathon").insert([
-    //   {
-    //     name,
-    //     has_team: hasTeam,
-    //     has_build_blinks: hasBuildBlinks,
-    //   },
-    // ]);
-
-    // console.log(res);
-
-    console.log("Inserted into DB");
+    if (res.error) {
+      console.log("Error in inserting data to supabase", res.error);
+      return NextResponse.json(
+        {
+          message: "Blink already submittedm, for any queries contact @blinkathon",
+        },
+        {
+          status: 400,
+          headers: ACTIONS_CORS_HEADERS,
+        }
+      );
+    }
 
     const tx = new Transaction().add(
       SystemProgram.transfer({
@@ -185,23 +178,8 @@ export async function POST(req: NextRequest) {
 
     const payload = await createPostResponse({
       fields: {
-        // links: {
-        //   next: {
-        //     type: "inline",
-        //     action: {
-        //       type: "completed",
-        //       error: {
-        //         message: "Scan the QR code to join the Blinkaton Telegram group",
-        //       },
-        //       icon: "https://i.imgur.com/LxmZ65g.jpeg",
-        //       description: "You have successfully registered for the Blinkaton",
-        //       label: "Registration Successful",
-        //       title: "Blinkaton",
-        //     },
-        //   },
-        // },
         transaction: tx,
-        message: "Results will be live here : https://blinkathon.fun",
+        message: "Wallah ! Results will be live soon : https://blinkathon.fun",
       },
     });
 
@@ -210,11 +188,16 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.log("Error in POST /api/action/%5Busername%5D", err);
-    let message = "An unknown error occurred";
+    let message = "An unknown error occurred, please try again or contact at @blinkathon"; 
     if (typeof err == "string") message = err;
-    return new Response(message, {
-      status: 400,
-      headers: ACTIONS_CORS_HEADERS,
-    });
+    return NextResponse.json(
+      {
+        message,
+      },
+      {
+        status: 400,
+        headers: ACTIONS_CORS_HEADERS,
+      }
+    );
   }
 }

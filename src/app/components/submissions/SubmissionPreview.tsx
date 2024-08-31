@@ -57,8 +57,8 @@ const SubmissionPreview = ({
           </div>
         </DialogTrigger>
 
-        <DialogContent className="bg-[#1C71FF]">
-          <div className="m-2">
+        <DialogContent className="bg-[#1C71FF] overflow-y-scroll">
+          <div className="m-2 overflow-y-scroll">
             <BlinkComp propActionApiUrl={propActionApiUrl} />
           </div>
 

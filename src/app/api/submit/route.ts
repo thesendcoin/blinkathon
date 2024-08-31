@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
       actions: [
         {
           label: "Submit!", // button text
-          href: "/api/form?name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&tracks={tracks}", // form action
+          href: "/api/submit?name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&hasTeam={hasTeam}&tracks={tracks}", // form action
           parameters: [
             {
               name: "name", // field name
@@ -35,16 +35,65 @@ export async function GET(req: NextRequest) {
             },
             { name: "telegramId", label: "Telegram username" },
             {
-              name: "blinkurl", // field name
+              name: "blinkurl",
+              type: "url",
               label: "Blink URL - Enter Actual path (domain/xyz)",
             },
             {
-              name: "githubUrl", // field name
+              name: "githubUrl",
+              type: "url",
               label: "Github URL - Enter project Github URL",
             },
             {
-              name: "tracks", // field name
-              label: "Tracks - Enter , seperated if more than 1",
+              name: "hasTeam",
+              label: "Do you have a team?",
+              type: "select",
+              options: [
+                {
+                  label: "Yes",
+                  value: "yes",
+                },
+                {
+                  label: "No",
+                  value: "no",
+                },
+              ],
+            },
+            {
+              type: "checkbox",
+              name: "tracks",
+              label: "Select all the Tracks, you want to participate in",
+              required: true,
+              options: [
+                {
+                  label: "SEND Integrations",
+                  value: "send",
+                },
+                {
+                  label: "Smart Account and Multi-Sig - Squads",
+                  value: "squads",
+                },
+                {
+                  label: "Digital Asset - Metaplex",
+                  value: "metaplex",
+                },
+                {
+                  label: "All Domains",
+                  value: "allDomains",
+                },
+                {
+                  label: "DeFi Blinks - Carrot",
+                  value: "carrot",
+                },
+                {
+                  label: "Kamino Integrations",
+                  value: "kamino",
+                },
+                {
+                  label: "NFT Trading - Tensor",
+                  value: "tensor",
+                },
+              ],
             },
           ],
         },
@@ -66,33 +115,38 @@ export async function POST(req: NextRequest) {
 
     const { searchParams } = new URL(req.url);
 
-    let name = searchParams.get("name");
-    let hasTeam = searchParams.get("hasTeam");
-    let hasBuildBlinks = searchParams.get("hasBuildBlinks");
+    //name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&hasTeam={hasTeam}&tracks={tracks}", // form action
 
-    if (!name || !hasTeam || !hasBuildBlinks) {
+    let paramName = searchParams.get("name");
+    let paramTelegramId = searchParams.get("telegramId");
+    let paramBlinkurl = searchParams.get("blinkurl");
+    let paramGithubUrl = searchParams.get("githubUrl");
+    let paramHasTeam = searchParams.get("hasTeam");
+    let paramTracks = searchParams.get("tracks");
+
+    if (
+      !paramName ||
+      !paramTelegramId ||
+      !paramBlinkurl ||
+      !paramGithubUrl ||
+      !paramHasTeam ||
+      !paramTracks
+    ) {
       return new Response("Missing required fields", {
         status: 400,
         headers: ACTIONS_CORS_HEADERS,
       });
     }
 
-    if (hasTeam.toLowerCase() !== "yes" && hasTeam.toLowerCase() !== "no") {
-      return new Response("Please make sure to reply only yes or no", {
-        status: 400,
-        headers: ACTIONS_CORS_HEADERS,
-      });
-    }
-
-    if (
-      hasBuildBlinks.toLowerCase() !== "yes" &&
-      hasBuildBlinks.toLowerCase() !== "no"
-    ) {
-      return new Response("Please make sure to reply only yes or no", {
-        status: 400,
-        headers: ACTIONS_CORS_HEADERS,
-      });
-    }
+    console.log("To be stored in DB");
+    console.log(
+      paramName,
+      paramTelegramId,
+      paramBlinkurl,
+      paramGithubUrl,
+      paramHasTeam,
+      paramTracks
+    );
 
     const connection = new Connection(
       clusterApiUrl("mainnet-beta"),
@@ -106,15 +160,15 @@ export async function POST(req: NextRequest) {
 
     console.log("Inserting into DB");
 
-    let res = await supabase.from("blinkathon").insert([
-      {
-        name,
-        has_team: hasTeam,
-        has_build_blinks: hasBuildBlinks,
-      },
-    ]);
+    // let res = await supabase.from("blinkathon").insert([
+    //   {
+    //     name,
+    //     has_team: hasTeam,
+    //     has_build_blinks: hasBuildBlinks,
+    //   },
+    // ]);
 
-    console.log(res);
+    // console.log(res);
 
     console.log("Inserted into DB");
 
@@ -147,7 +201,7 @@ export async function POST(req: NextRequest) {
         //   },
         // },
         transaction: tx,
-        message: "Join here https://blinkathon.fun",
+        message: "Results will be live here : https://blinkathon.fun",
       },
     });
 

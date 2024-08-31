@@ -20,7 +20,7 @@ const SubmissionsSec = () => {
         <div className="flex flex-row items-center justify-center">
           <SubmissionPreview
             propBlinkPreviewUrl={""}
-            propActionApiUrl="https://checkmate.sendarcade.fun"
+            propActionApiUrl="https://rockpaperblinks.vercel.app/rps"
             propPfpUrl={""}
             propWalAddress={"0x093202..090"}
             propBlinkUrl={"blinkathon.com"}

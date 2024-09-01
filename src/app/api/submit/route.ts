@@ -19,7 +19,7 @@ import { cookies } from "next/headers";
 export async function GET(req: NextRequest) {
   let response: ActionGetResponse = {
     type: "action",
-    icon: "https://www.blinkathon.fun/banner.jpeg",
+    icon: "https://www.blinkathon.fun/submit.jpeg",
     title: "Submit your Blinks",
     description: "Online Blinks hackathon submission portal",
     label: "Submit!",

@@ -79,6 +79,14 @@ export async function GET(req: NextRequest) {
                   value: "carrot",
                 },
                 {
+                  label: "Most Popular Blink - Blinkinsights",
+                  value: "blinkisights",
+                },
+                {
+                  label: "Most Engaging Blink - Bags",
+                  value: "bags",
+                },
+                {
                   label: "Kamino Integrations",
                   value: "kamino",
                 },

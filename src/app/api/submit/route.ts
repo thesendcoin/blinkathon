@@ -21,7 +21,8 @@ export async function GET(req: NextRequest) {
     type: "action",
     icon: "https://www.blinkathon.fun/submit.jpeg",
     title: "Submit your Blinks",
-    description: "Online Blinks hackathon submission portal",
+    description:
+      "Online Blinks hackathon submission portal, tracks are send,squads,metaplex,alldomains,carrot,blinkinsights,bags,kamino,tensor",
     label: "Submit!",
     links: {
       actions: [
@@ -157,7 +158,7 @@ export async function POST(req: NextRequest) {
         github: paramGithubUrl,
         pitch: paramPitch,
         tracks: paramTracks.split(","),
-        address : body.account
+        address: body.account,
       },
     ]);
 
@@ -165,7 +166,8 @@ export async function POST(req: NextRequest) {
       console.log("Error in inserting data to supabase", res.error);
       return NextResponse.json(
         {
-          message: "Blink already submittedm, for any queries contact @blinkathon",
+          message:
+            "Blink already submittedm, for any queries contact @blinkathon",
         },
         {
           status: 400,
@@ -197,7 +199,8 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.log("Error in POST /api/action/%5Busername%5D", err);
-    let message = "An unknown error occurred, please try again or contact at @blinkathon"; 
+    let message =
+      "An unknown error occurred, please try again or contact at @blinkathon";
     if (typeof err == "string") message = err;
     return NextResponse.json(
       {

@@ -157,6 +157,7 @@ export async function POST(req: NextRequest) {
         github: paramGithubUrl,
         pitch: paramPitch,
         tracks: paramTracks.split(","),
+        address : body.account
       },
     ]);
 

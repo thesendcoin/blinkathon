@@ -19,7 +19,7 @@ const TracksSection = () => {
           height={240}
         />
 
-        <p className="text-[94px]">Blinkathon Tracks</p>
+        <p className="text-[94px] text-center">Blinkathon Tracks</p>
 
         <div className="flex flex-row flex-wrap items-center justify-center gap-12 max-w-7xl">
           {tracks.map((track, index) => (

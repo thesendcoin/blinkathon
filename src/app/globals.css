@@ -75,3 +75,68 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* 
+    Use .x-dark, .x-light, .dial-light, or .custom classes 
+    .custom - does not contain any colors, radii or shadow
+*/
+
+/* 1D41B9 */
+/* 699EFF */
+/* CCECFF */
+/* 1C71FF */
+
+.blink.custom {
+  --blink-bg-primary: #1C71FF;
+
+  /* Button customization : */
+  --blink-button: #fff;
+  --blink-text-button: #1C71FF;
+
+  --blink-button-disabled: #fff;
+  --blink-button-hover: #fffffff3;
+  --blink-button-success: #00ae661a;
+  --blink-icon-error: #ff6565;
+  --blink-icon-error-hover: #ff7a7a;
+  --blink-icon-primary: #fff;
+  --blink-icon-primary-hover: #fff;
+  --blink-icon-warning: #ffb545;
+  --blink-icon-warning-hover: #ffc875;
+
+  /* Inputs customization : */
+
+  --blink-input-stroke-disabled: #566470;
+  --blink-input-stroke-error: #ff6565;
+  --blink-input-stroke-hover: #fff;
+  --blink-input-stroke-selected: #fff;
+  --blink-stroke-error: #ff6565;
+
+  /* To disable stroke :*/
+  --blink-stroke-primary: #1C71FF;
+  --blink-stroke-secondary: #fff;
+  --blink-stroke-warning: #ffb545;
+  --blink-text-brand: #35aeff;
+
+  --blink-text-button-disabled: #000;
+  --blink-text-button-success: #12dc88;
+  --blink-text-error: #ff6565;
+  --blink-text-error-hover: #ff7a7a;
+ 
+  --blink-text-link: #fff;
+  --blink-text-link-hover: #fff;
+  --blink-text-primary: #fff;
+  --blink-text-secondary: #fff;
+  --blink-text-success: #12dc88;
+  --blink-text-warning: #ffb545;
+  --blink-text-warning-hover: #ffc875;
+  --blink-transparent-error: #aa00001a;
+  --blink-transparent-grey: #fff1a;
+  --blink-transparent-warning: #a966001a;
+
+  --blink-border-radius-rounded-lg: 0.25rem;
+  --blink-border-radius-rounded-xl: 0.5rem;
+  --blink-border-radius-rounded-2xl: 1.125rem;
+  --blink-border-radius-rounded-button: 624.9375rem;
+  --blink-border-radius-rounded-input : 624.9375rem;
+
+}

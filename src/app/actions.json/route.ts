@@ -5,13 +5,17 @@ export const GET = async () => {
     rules: [
       {
         pathPattern: "/",
-        apiPath: "/api/form/",
+        apiPath: "/api/form",
+      },
+      {
+        pathPattern: "/submit",
+        apiPath: "/api/submit",
       },
       // fallback route
       {
         pathPattern: "/api/form/",
         apiPath: "/api/form/",
-      }
+      },
     ],
   };
 

@@ -107,7 +107,7 @@ const HeroBackgroundSVG = () => {
   );
 };
 
-const BlinkathonSVG = () => {
+export const BlinkathonSVG = () => {
   return (
     <div className='w-[254px] h-[110px] lg:w-[666px] lg:h-[290px]'>
       <svg

@@ -115,6 +115,17 @@ export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as { account: string };
 
+    return NextResponse.json(
+      {
+        message:
+          "Submissions are closed, for any queries contact @blinkathon",
+      },
+      {
+        status: 400,
+        headers: ACTIONS_CORS_HEADERS,
+      }
+    );
+
     const { searchParams } = new URL(req.url);
 
     //name={name}&telegramId={telegramId}&blinkurl={blinkurl}&githubUrl={githubUrl}&hasTeam={hasTeam}&tracks={tracks}", // form action
@@ -157,7 +168,7 @@ export async function POST(req: NextRequest) {
         blink: paramBlinkurl,
         github: paramGithubUrl,
         pitch: paramPitch,
-        tracks: paramTracks.split(","),
+        tracks: paramTracks?.split(","),
         address: body.account,
       },
     ]);

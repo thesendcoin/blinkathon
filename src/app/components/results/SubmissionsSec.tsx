@@ -1,10 +1,24 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import TracksBottomBG from "@/assets/svgs/bgs/TracksBottomBG.svg";
 import TracksTopBG from "@/assets/svgs/bgs/TracksTopBG.svg";
 import Image from "next/image";
 import SubmissionPreview from "@/app/components/submissions/SubmissionPreview";
+import axios from "axios";
 
 const SubmissionsSec = () => {
+  const [submissions, setSubmissions] = useState([]);
+
+  const fetchSubmissions = async () => {
+    const res = await axios.get("/api/results");
+    setSubmissions(res?.data?.data);
+    console.log(res?.data);
+  };
+
+  useEffect(() => {
+    fetchSubmissions();
+  }, []);
   return (
     <>
       <div className="w-full h-full bg-[#1C71FF]">
@@ -17,14 +31,19 @@ const SubmissionsSec = () => {
         />
         <p className="text-[94px] text-center">Blinkathon Submissions</p>
 
-        <div className="flex flex-row items-center justify-center">
-          <SubmissionPreview
-            propBlinkPreviewUrl={""}
-            propActionApiUrl="https://rockpaperblinks.vercel.app/rps"
-            propPfpUrl={""}
-            propWalAddress={"0x093202..090"}
-            propBlinkUrl={"blinkathon.com"}
-          />
+        <div className="flex flex-wrap items-center justify-center gap-8">
+          {/* <div className="grid grid-cols-3 gap-8"> */}
+          {submissions &&
+            submissions?.map((submission: any, index) => (
+              <SubmissionPreview
+                key={index}
+                propBlinkPreviewUrl={""}
+                propActionApiUrl={submission?.blink}
+                propPfpUrl={""}
+                propTgHandle={`@${submission?.telegram}`}
+                propBlinkUrl={submission?.github}
+              />
+            ))}
         </div>
         <Image
           className="w-full h-full"

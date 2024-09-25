@@ -7,9 +7,10 @@ export async function GET(req: NextRequest) {
   const supabase = createClient(cookieStore);
 
   let res = await supabase
-    .from('blinkathon_results')
+    .from("blinkathon_results")
     .select("name,telegram,blink,github,tracks");
 
+  console.log(res);
   return NextResponse.json(res);
 }
 

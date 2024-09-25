@@ -13,7 +13,7 @@ import Image from "next/image";
 import BlinkComp from "../Blinks/BlinkComp";
 import utilCropGH from "@/utils/ui/utilCropGH";
 import githubUrl from "@/assets/svgs/icons/github.svg";
-
+import eyesSvg from "@/assets/svgs/icons/eyes.svg";
 interface TypeSubmissionPreview {
   propPfpUrl: string;
   propTgHandle: string;
@@ -43,10 +43,19 @@ const SubmissionPreview = ({
                   height={40}
                 />
               )}
+
               {!propBlinkPreviewUrl && (
                 <div className="w-[320px] h-[320px] bg-[#fff] border-8 border-[#699EFF] text-black">
                   {" "}
-                  {/* {propActionApiUrl} */}
+                  <div className=" text-[32px] p-4 text-[#1C71FF]"> {utilCropGH(propBlinkUrl, true)} </div>
+                  <Image
+                    className="ml-32"
+                    src={eyesSvg}
+                    alt="Sponsors"
+                    width={192}
+                    height={192}
+                  />
+                  {/* <div className=" text-[16px] p-4 text-[#1C71FF]"> {propActionApiUrl} </div> */}
                 </div>
               )}
             </div>
@@ -64,13 +73,13 @@ const SubmissionPreview = ({
             </div>
             <div
               onClick={() => window?.open(propBlinkUrl)}
-              className="flex items-center gap-2"
+              className="flex items-center justify-start align-top gap-2"
             >
               <div className="cursor-pointer h-[44px]  w-[44px] rounded-full">
                 <Image src={githubUrl} alt="Sponsors" width={40} height={40} />
               </div>
               <div className="cursor-pointer text-[24px]">
-                {utilCropGH(propBlinkUrl)}
+                {utilCropGH(propBlinkUrl, false)}
               </div>
             </div>
           </div>

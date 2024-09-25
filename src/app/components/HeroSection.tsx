@@ -190,7 +190,7 @@ export const BlinkathonSVG = () => {
   );
 };
 
-const EyesSVG = () => {
+export const EyesSVG = () => {
   return (
     <div>
       <svg

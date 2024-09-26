@@ -24,7 +24,7 @@ const SubmissionPreview = ({
   propBlinkUrl,
   propActionApiUrl,
   propBlinkPreviewUrl,
-}: TypeSubmissionPreview) => {
+}: any) => {
   return (
     <>
       <Dialog>

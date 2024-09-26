@@ -1,3 +1,5 @@
+"use client";
+
 import closeIcon from "@/assets/svgs/buttons/close.svg";
 
 import {
@@ -9,10 +11,12 @@ import {
 
 import Image from "next/image";
 import BlinkComp from "../Blinks/BlinkComp";
-
+import utilCropGH from "@/utils/ui/utilCropGH";
+import githubUrl from "@/assets/svgs/icons/github.svg";
+import eyesSvg from "@/assets/svgs/icons/eyes.svg";
 interface TypeSubmissionPreview {
   propPfpUrl: string;
-  propWalAddress: string;
+  propTgHandle: string;
   propBlinkUrl: string;
   propActionApiUrl: string;
   propBlinkPreviewUrl: string;
@@ -20,7 +24,7 @@ interface TypeSubmissionPreview {
 
 const SubmissionPreview = ({
   propPfpUrl,
-  propWalAddress,
+  propTgHandle,
   propBlinkUrl,
   propActionApiUrl,
   propBlinkPreviewUrl,
@@ -28,8 +32,8 @@ const SubmissionPreview = ({
   return (
     <>
       <Dialog>
-        <DialogTrigger>
-          <div className="flex flex-col items-center justify-center gap-4 ">
+        <div className="flex flex-col items-center justify-center gap-4 ">
+          <DialogTrigger>
             <div className="flex flex-col gap-1 text-left">
               {propBlinkPreviewUrl && (
                 <Image
@@ -39,23 +43,47 @@ const SubmissionPreview = ({
                   height={40}
                 />
               )}
+
               {!propBlinkPreviewUrl && (
-                <div className="w-[320px] h-[320px] bg-[#fff] border-8 border-[#699EFF]"></div>
+                <div className="w-[320px] h-[320px] bg-[#fff] border-8 border-[#699EFF] text-black">
+                  {" "}
+                  <div className=" text-[32px] p-4 text-[#1C71FF]"> {utilCropGH(propBlinkUrl, true)} </div>
+                  <Image
+                    className="ml-32"
+                    src={eyesSvg}
+                    alt="Sponsors"
+                    width={192}
+                    height={192}
+                  />
+                  {/* <div className=" text-[16px] p-4 text-[#1C71FF]"> {propActionApiUrl} </div> */}
+                </div>
               )}
             </div>
+          </DialogTrigger>
 
-            <div className="flex w-full items-center justify-center p-2 gap-2 border-8 border-[#699EFF] bg-[#1D41B9]">
-              <div className="flex items-center justify-center gap-2">
-                <div className="cursor-pointer h-[44px]  w-[44px] border-8 border-[#699EFF] bg-[#cbe330] rounded-full"></div>
-                <div className="cursor-pointer text-[24px]">
-                  {propWalAddress}
-                </div>
+          <div className="flex flex-col w-[320px] p-2 gap-2 border-8 border-[#699EFF] bg-[#1D41B9]">
+            <div
+              onClick={() =>
+                window?.open(`https://t.me/${propTgHandle?.replace("@", "")}`)
+              }
+              className="flex items-center gap-2"
+            >
+              <div className="cursor-pointer h-[44px]  w-[44px] border-8 border-[#699EFF] bg-[#cbe330] rounded-full"></div>
+              <div className="cursor-pointer text-[24px]">{propTgHandle}</div>
+            </div>
+            <div
+              onClick={() => window?.open(propBlinkUrl)}
+              className="flex items-center justify-start align-top gap-2"
+            >
+              <div className="cursor-pointer h-[44px]  w-[44px] rounded-full">
+                <Image src={githubUrl} alt="Sponsors" width={40} height={40} />
               </div>
-
-              <div className="text-[24px]">{propBlinkUrl}</div>
+              <div className="cursor-pointer text-[24px]">
+                {utilCropGH(propBlinkUrl, false)}
+              </div>
             </div>
           </div>
-        </DialogTrigger>
+        </div>
 
         <DialogContent className="bg-[#1C71FF] overflow-y-scroll">
           <div className="m-2 overflow-y-scroll">

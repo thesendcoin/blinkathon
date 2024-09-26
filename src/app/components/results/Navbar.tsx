@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="cursor-pointer">
+          {/* <div className="cursor-pointer">
             <Image
               className="-z-40"
               src={blueSvgCTA}
@@ -44,7 +44,7 @@ const Navbar = () => {
             <div className="-mt-8 ml-6 text-[#fff] text-lg z-50">
               Submit Blinks
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
